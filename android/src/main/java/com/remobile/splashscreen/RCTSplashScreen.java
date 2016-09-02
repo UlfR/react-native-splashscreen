@@ -65,6 +65,9 @@ public class RCTSplashScreen extends ReactContextBaseJavaModule implements Lifec
 
     private void removeSplashScreen() {
         Activity currentActivity = getCurrentActivity();
+        if (currentActivity == null) {
+          return;
+        }
         currentActivity.runOnUiThread(new Runnable() {
             public void run() {
                 if (splashDialog != null && splashDialog.isShowing()) {
